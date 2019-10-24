@@ -22,7 +22,7 @@ OBJ = $(patsubst %.cpp, %.o, $(SRC))
 %.o : %.cpp
 	$(COMPILER) $(COMPILE_FLAGS) $(INCLUDES) -c $< -o $@
 
-build: $(OBJ)
+build: clean $(OBJ)
 	$(LINKER) $(LINK_FLAGS) $(OBJ) -o $(PROJ).exe
 
 clean:
