@@ -7,17 +7,19 @@ INC_DIR = \
 	.
 
 COMPILE_FLAGS = \
+	-std=c++11 \
 
 LINK_FLAGS = \
+	-std=c++11 \
 
-COMPILER = g++
+COMPILER = g++ 
 LINKER = g++
 
 INCLUDES = $(patsubst %,-I%,$(INC_DIR))
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC))
 
-%.o : %.c
+%.o : %.cpp
 	$(COMPILER) $(COMPILE_FLAGS) $(INCLUDES) -c $< -o $@
 
 build: $(OBJ)
